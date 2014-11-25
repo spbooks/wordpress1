@@ -1,0 +1,6 @@
+a, a:link, a:visited {color:#FF0000;}
+#blog-title {
+  background:transparent url('header.png') left top no-repeat;
+  padding-left: 120px;
+  height: 100px;
+}

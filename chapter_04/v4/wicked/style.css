@@ -1,0 +1,931 @@
+/*   
+Theme Name: Wicked Theme
+Theme URI: http://sitepoint.com/books/wordpress1
+Description: A wicked Thematic child theme.
+Author: Raena Jackson Armitage
+Author URI: http://raena.net
+Template: thematic
+Version: 1.0
+Tags: Thematic, three-columns, blue, grey, gray
+.
+Thematic is © Ian Stewart http://themeshaper.com/
+.
+*/
+
+/* Thematic reset of browser defaults */
+@import url('../thematic/library/styles/reset.css');
+
+/* Thematic basic typography styles */
+@import url('../thematic/library/styles/typography.css'); 
+
+/* A Thematic basic layout: this is a two column right hand one, with a fixed width. */
+@import url('../thematic/library/layouts/2c-r-fixed.css');
+
+/* Thematic includes some common styles for plugins. */
+@import url('../thematic/library/styles/plugins.css');
+
+/* Let's import the Yanone Kaffeesatz font from the Google Fonts Directory (http://code.google.com/webfonts). For browsers that support it, we'll have a sexy custom typeface. */
+@import url('http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz');
+
+/* -------------------------------------------------------------- 
+   
+   Default styles for Images
+   
+   I've duplicated these styles here from images.css in
+   order to get Thematic through the auto-checker at the
+   official WordPress Themes directory.
+   
+   When the directory can hunt though css files linked
+   through @import the styles below will no longer be
+   neccesary and will be removed.
+   
+   Cheers. --Ian Stewart
+  
+-------------------------------------------------------------- */   
+
+.entry-content img {
+    margin: 0 0 18px 0;
+    max-width:100%;
+}
+.alignleft,
+img.alignleft {
+	float: left;
+    margin-right:20px;
+}
+.alignright,
+img.alignright {
+	display: block;
+	float: right;
+    margin-left:20px;
+}
+.aligncenter,
+img.aligncenter {
+	margin-left:auto;
+	margin-right:auto;
+	display: block;
+	clear: both;
+}
+.wp-caption {
+	text-align: center;
+	margin: 15px;
+}
+.wp-caption img {
+	margin: 0;
+	padding: 0;
+	border: 0 none;
+}
+.wp-caption p.wp-caption-text {
+	margin: 0;
+	padding:5px;
+}
+.gallery img {
+    margin:0;
+}
+.wp-smiley { /* Prevent the smileys from breaking line-height */
+	max-height:12px;
+	margin:0 !important;
+}
+
+
+/*
+----- Here comes the customisation! -----
+
+We have copied the defaults from Thematic, so these declarations run in roughly the same order - but there's plenty going on in here.
+*/
+
+
+
+
+
+
+/* =Global Elements
+-------------------------------------------------------------- */
+
+#container {
+	padding: 0;
+}
+
+body, input, textarea {
+    font: 15px Helvetica, Arial, sans-serif;
+}
+
+body {
+	background: #332f28;
+	color: #ECEAB0;
+}
+
+p, ul, ol, dd, pre {
+    margin-bottom:22px;
+}
+pre, code {
+	font:14px Monaco, monospace;
+}
+blockquote {
+
+}
+table {
+    border:1px solid #aaa;
+    border-width:1px 1px 0 1px;
+    font-size:13px;
+    margin:0 0 22px 0;
+    text-align:left;
+}
+caption {
+    text-align:left;
+}
+tr {
+    border-bottom:1px solid #ccc;
+}
+th, td {
+    padding: .7em 1.25em;
+	background: #aaa;
+}
+hr {
+    background-color:#ccc;
+    border:0;
+    color:#ccc;
+    height:1px;
+    margin-bottom:22px;
+}
+a:link {
+    color:#693;
+}
+a:visited {
+    color:#784;
+}
+a:active,
+a:hover {
+    color: #550;
+}
+
+h1, h2, h3, h4, h5, h6, #blog-title, #blog-description {
+	font-family: "Yanone Kaffeesatz", "Arial Narrow", "Tahoma", serif;
+	font-weight: 100;
+	text-transform: lowercase;
+	
+}
+
+
+/* =Header
+-------------------------------------------------------------- */
+
+#header {
+    z-index:2;
+    height: 250px;
+	background: transparent url('theshoes.jpg') center top no-repeat;
+	/* this image has been licensed under creative commons
+	by Flickr user "geishaboy" - 
+	http://www.flickr.com/photos/geishaboy500/2792400956/
+	http://creativecommons.org/licenses/by/2.0/deed.en*/
+	position: relative;
+	width: 960px;
+	margin: 0 auto;
+}
+
+/* we can target specific types of pags. in this declaration we'll change the page header image */
+body.page #header {
+	background-image: url('wallofshoes.jpg');
+	/* this image has been licensed under creative commons
+	by Flickr user "seo2" --
+	http://www.flickr.com/photos/seo2/1808968499/
+	http://creativecommons.org/licenses/by-sa/2.0/
+	*/
+}
+
+/* and again, for a single post */
+body.single #header {
+	background-image: url('redshoes.jpg');
+	/* this image has been licensed under creative commons
+	by Flickr user "mollybob" --
+	http://www.flickr.com/photos/shelleygibb/3517110151
+	http://creativecommons.org/licenses/by-sa/2.0/
+	*/
+}
+
+#blog-title	{
+	position: absolute;
+	top: 30px;
+	left: 0px;
+	width: 240px;
+	text-align: right;
+    font-size:30px;
+	line-height: 45px;
+	padding: 45px 30px 15px 30px;
+	background: #000;
+}
+
+
+#blog-title a {
+    color:#ECEAB0;
+    text-decoration:none;
+}
+#blog-title a:active,
+#blog-title a:hover {
+    color: #FFF;
+	text-decoration: underline;
+	
+}
+
+#blog-description {
+	display: inline;
+	position: absolute;
+	top: 120px;
+	left: 0px;
+	width: 240px;
+	text-align: right;
+	background: #bf4c18;
+	font-size: 16px;
+	padding: 0 30px;
+}
+
+
+/* =Menu
+-------------------------------------------------------------- */
+
+.skip-link {
+    display:none;
+}
+#access {
+    height:32px;
+    font-size:13px;
+    overflow:visible;
+    z-index:100;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	padding-left: 30px;
+	background: #241;
+	text-transform: lowercase;
+	
+}
+/*** ESSENTIAL STYLES ***/
+.sf-menu, .sf-menu * {
+	margin:			0;
+	padding:		0;
+	list-style:		none;
+}
+.sf-menu {
+	line-height:	1.0;
+}
+.sf-menu ul {
+	position:		absolute;
+	top:			-999em;
+	width:			10em; /* left offset of submenus need to match (see below) */
+}
+.sf-menu ul li {
+	width:			100%;
+}
+.sf-menu li:hover {
+	visibility:		inherit; /* fixes IE7 'sticky bug' */
+}
+.sf-menu li {
+	float:			left;
+	position:		relative;
+}
+.sf-menu a {
+	display:		block;
+	position:		relative;
+}
+.sf-menu li:hover ul,
+.sf-menu li.sfHover ul {
+	left:			0;
+	top:			2.5em; /* match top ul list item height */
+	z-index:		99;
+}
+ul.sf-menu li:hover li ul,
+ul.sf-menu li.sfHover li ul {
+	top:			-999em;
+}
+ul.sf-menu li li:hover ul,
+ul.sf-menu li li.sfHover ul {
+	left:			10em; /* match ul width */
+	top:			0;
+}
+ul.sf-menu li li:hover li ul,
+ul.sf-menu li li.sfHover li ul {
+	top:			-999em;
+}
+ul.sf-menu li li li:hover ul,
+ul.sf-menu li li li.sfHover ul {
+	left:			10em; /* match ul width */
+	top:			0;
+}
+
+/*** THEMATIC SKIN ***/
+.sf-menu {
+	float:left;
+}
+.sf-menu a {
+	padding:9px 13px;
+	text-decoration:none;
+	color: #ECEAB0;
+	font-weight: bold;
+    
+}
+.sf-menu .current_page_item a,
+.sf-menu .current_page_ancestor a,
+.sf-menu .current_page_parent a {
+	font-weight: bold;
+}
+.sf-menu a, .sf-menu a:visited  {
+	color: #ECEAB0;
+	border-bottom:none;
+}
+
+.sf-menu li:hover, .sf-menu li.sfHover,
+.sf-menu a:focus, .sf-menu a:hover, .sf-menu a:active {
+    background: #BF4C18;
+	color: #ECEAB0;
+	outline: 0;
+	text-decoration: underline;
+}
+
+.sf-menu li:hover ul,
+.sf-menu li.sfHover ul {
+	top:32px; /* overriding essential styles */
+	background: #BF4C18;
+}
+
+.sf-menu li li:hover a,
+.sf-menu li li.sfHover a {
+	background: #BF4C18;
+	color: #ECEAB0;
+}
+
+
+
+/* =Content
+-------------------------------------------------------------- */
+
+#main {
+    clear:both;
+    padding: 30px 0;
+	background: #fff url('gradient.png') top right no-repeat;
+	color: #222;
+}
+
+#content {
+	padding: 0px 30px;
+}
+
+.attachment .page-title {
+	font-weight: bold;
+}
+.page-title a {
+    color:#BF4C18;
+    text-decoration:none;
+}
+.page-title a:active,
+.page-title a:hover {
+    color: #BF4C18;
+	text-decoration: underline;
+}
+
+
+.page-title .meta-nav {
+    font-style:normal;
+}
+
+
+.home #content .sticky {
+    border:1px solid #aaa;
+    margin:15px 0;
+    padding:15px 30px;
+}
+
+.post {
+	margin: 0 0 60px 0;
+}
+.entry-title {
+	font-size: 30px;
+    line-height:45px;
+}
+body.single .entry-title, body.page .entry-title {
+	font-size:45px;
+	line-height: 60px;
+}
+
+
+.entry-title a {
+    text-decoration:none;
+	color: #FF4B33;
+}
+
+.entry-title a:active,
+.entry-title a:hover {
+    color: #FF4B33;
+	text-decoration: underline;
+}
+.entry-meta, .entry-utility {
+    font-size:12px;
+    line-height:15px;
+}
+.entry-meta .author {
+	font-weight: bold;
+}
+
+.entry-meta a {
+    text-decoration:none;
+}
+.entry-meta a:active,
+.entry-meta a:hover {
+    color: #FF4B33;
+}
+.entry-meta abbr {
+    border:none;
+    cursor:text;
+	font-weight: bold;
+    font-style:normal;
+}
+.entry-content {
+    padding: 15px 0;
+	line-height: 1.5;
+}
+.entry-content h1,
+.entry-content h2 {
+    font-size:24px;
+    font-weight:bold;
+}
+.entry-content h3 {
+    font-size:18px;
+}
+.entry-content h4 {
+    font-size:15px;
+}
+.entry-content table {
+    margin-left:1px;
+}
+
+.entry-utility {
+    clear: both;
+	padding-left: 45px;
+}
+.entry-utility a {
+    text-decoration:none;
+}
+.entry-utility a:active,
+.entry-utility a:hover {
+    color: #FF4B33;
+}
+.page-link {
+    font-size:13px;
+    font-weight:bold;
+    margin: 0 5px;
+    padding: 30px 0 0 0;
+    word-spacing:0.5em;
+}
+.page-link a {
+    font-weight:normal;
+    padding:0.5em 0.75em;
+    text-decoration:none;
+}
+.page-link a:active,
+.page-link a:hover {
+    color: #FF4B33;
+}
+ul#links-page,
+ul#archives-page {
+    list-style:none;
+    margin-left:0;
+    overflow:hidden;
+}
+li.content-column {
+    float:left;
+    margin-right:20px;
+    width:45%;
+}
+.gallery {
+    padding:0 0 22px 0;
+}
+.wp-caption-text,
+.gallery-caption {
+    font-size:13px;
+}
+#author-info {
+    margin:0 0 44px 0;
+    overflow:hidden;
+}
+#author-info .avatar {
+    float:left;
+    margin:.3em 1em 0 0;
+}
+
+
+/* =Attachments
+-------------------------------------------------------------- */
+
+.attachment-jpeg #container,
+.attachment-png #container {
+    width:100%;
+}
+.attachment-jpeg #content,
+.attachment-png #content {
+    width:930px;
+}
+.attachment-jpeg #comments,
+.attachment-png #comments {
+    width:540px;
+    overflow:hidden;
+}
+.attachment-jpeg .main-aside,
+.attachment-png .main-aside {
+    display:none;    
+}
+
+
+/* =Navigation
+-------------------------------------------------------------- */
+
+.navigation {
+    overflow:hidden;
+}
+.navigation a {
+
+    text-decoration:none;
+}
+.navigation a:active,
+.navigation a:hover {
+    color: #FF4B33;
+}
+.navigation .meta-nav {
+    font-style:normal;
+}
+.nav-previous {
+	float: left;
+	width:50%;
+}
+.nav-next {
+	float: right;
+	width:50%;
+	text-align:right;
+}
+#nav-above,#nav-below {
+	width: 100%;
+}
+#nav-above {
+    display:none;
+}
+.paged #nav-above {
+    display:block;
+    padding:0 0 44px 0;
+}
+
+
+/* =Comments
+-------------------------------------------------------------- */
+
+#comments {
+    padding:22px 0 0 0;
+}
+#comments,
+#comments input,
+#comments textarea {
+    font-size:13px;
+}
+#comments code {
+    font-size:12px;
+}
+#comments h3 {
+    font-size:24px;
+}
+#comments-list {
+    padding:0 0 18px 0;
+}
+#comments-list ol,
+#comments-list ul {
+    list-style:none;
+    margin:0;
+}
+#comments-list ol {
+    border-bottom:none;
+}
+#comments-list li {
+    background:#fafafa;
+    padding:15px 30px;
+    position:relative;
+}
+#comments-list li.alt {
+    background:#fff;
+}
+#comments-list li.bypostauthor {
+    background:#FFFFCC;
+}
+#comments-list ul li {
+    border:1px solid #ccc;
+    margin:0 0 18px 0;
+}
+#comments-list li .avatar {
+    position:absolute;
+    top:22px;
+    left:1.5em;
+    width:36px;
+    height:36px;
+}
+#comments-list .comment-author {
+    font-weight:bold;
+    padding:9px 0 0 46px;
+}
+#comments-list .comment-meta {
+
+    font-size:11px;
+    padding:0 0 9px 46px;
+}
+#comments-list .comment-meta a {
+
+    text-decoration:none;
+}
+#comments-list .comment-meta a:active,
+#comments-list .comment-meta a:hover {
+    color: #FF4B33;
+}
+.comment-reply-link {
+    padding:0 0 15px 0;
+    text-align:right;
+}
+.comment-reply-link a {
+
+    text-decoration:none;
+}
+.comment-reply-link a:active,
+.comment-reply-link a:hover {
+    color: #FF4B33;
+}
+.comment-navigation {
+    font-weight:bold;
+    padding:0 0 18px 0;
+    margin-right:0.5em;
+}
+.comment-navigation a {
+    border:1px solid #ccc;
+
+    font-weight:normal;
+    padding:0.5em 0.75em;
+    text-decoration:none;
+}
+.comment-navigation a:active,
+.comment-navigation a:hover {
+    color: #FF4B33;
+}
+.comment-navigation a,
+.comment-navigation span {
+    margin-right:0.5em;
+}
+#trackbacks-list .comment-content {
+    position:absolute;
+    left:-9000px;
+}
+#respond {
+    background:#fff;
+    margin-bottom:22px;
+    overflow:hidden;
+    padding:18px 0 0 0;
+    position:relative;
+}
+#comments-list #respond {
+    border-bottom:1px solid #ccc;
+    margin:0 0 18px 0;
+    padding:18px 1.5em;
+}
+#comments-list ul #respond {
+    border:1px solid #ccc;
+    margin:0;
+}
+#cancel-comment-reply {
+    font-size:11px;
+    position:absolute;
+    top:18px;
+    right:1.5em;
+}
+#cancel-comment-reply a {
+
+}
+#respond .required {
+    color:#FF4B33;
+    font-weight:bold;
+}
+.form-section label {
+    font-size:11px;
+}
+.form-section input {
+    margin:0 0 18px 0;
+    width:98%;
+}
+.form-section textarea {
+    width:99%;
+}
+#form-allowed-tags p {
+
+    font-size:11px;
+    margin:0;    
+}
+#form-allowed-tags span {
+
+}
+#form-allowed-tags code {
+    font-size:11px;
+}
+.form-submit {
+    padding:18px 0 0 0;
+    text-align:right;
+}
+.subscribe-to-comments {
+
+    float:left;
+    font-size:11px;
+    margin:0;
+    padding:18px 0 0 0;
+}
+.solo-subscribe-to-comments {
+
+    font-size:11px;
+    padding:18px 0 0 0;
+}
+.comment_license {
+    clear:both;
+    font-size:11px;
+    margin:0;
+    padding:18px 0 0 0;
+}
+
+
+/* =Asides, Sidebars & Widget-Ready Areas
+-------------------------------------------------------------- */
+
+.aside,
+.aside input {
+    margin-bottom:15px;
+}
+.aside p,
+.aside ul,
+.aside ol,
+.aside dd,
+.aside pre {
+    margin-bottom:15px;
+}
+.aside pre,
+.aside code {
+    font-size:12px;
+}
+
+
+.aside h3 {
+	font-size: 24px;
+	line-height: 45px;
+	color: #231;
+}
+.aside h3 a {
+    text-decoration:none;
+}
+.aside caption {
+    font-size:11px;
+    font-weight:bold;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+}
+.aside ul {
+    list-style:none;
+    margin-left:0;
+}
+.aside ul ul {
+    list-style:disc;
+    margin:0 0 22px 20px;
+}
+.aside ul ul li {
+    padding:1px 0;
+}
+.aside ul ul ul {
+    margin-bottom:0;
+}
+.aside form,
+.aside table {
+    margin-bottom:22px;
+}
+.aside table {
+    border:none;
+}
+.aside thead {
+    border:1px solid #ccc;
+}
+.aside tbody {
+    border:1px solid #ccc;
+}
+.aside th, .aside td {
+    border-right:1px solid #ccc;
+    padding:.25em .8em;
+}
+.aside tfoot tr {
+    border:none;
+}
+.aside tfoot td {
+    border-color:transparent;
+}
+.widget_tag_cloud {
+    margin:0 0 22px 0;
+}
+.aside #searchsubmit {
+	display: none;	
+}
+/*
+    Main Asides
+*/
+.main-aside ul {
+    padding:0 20px;
+}
+.main-aside h3 {
+}
+.main-aside ul ul {
+    padding:0;
+}
+
+/*
+    Content Asides
+*/
+#content .aside {
+    border:1px solid #ccc;
+    margin:0 0 22px 0;
+    padding:18px 0 0 0;
+}
+#content .aside ul {
+    padding:0 20px;
+}
+#content .aside h3 {
+    font-family:Georgia,serif;
+    font-weight:normal;
+    font-size:17px;
+    padding:0 0 7px 0;
+    text-transform:none;
+}
+#content .aside ul ul {
+    padding:0;
+}
+/*
+    Footer Asides
+*/
+#subsidiary {
+    padding:33px 0 0 0;    
+}
+
+
+/* =Footer
+-------------------------------------------------------------- */
+
+#footer {
+padding: 60px 30px;
+
+}
+#siteinfo {
+    font-size:11px;
+}
+#siteinfo a {
+
+}
+#siteinfo a:active,
+#siteinfo a:hover {
+    color: #FF4B33;
+}
+
+
+/* =PageNavi
+-------------------------------------------------------------- */
+
+/* Using !important to override PageNavi CSS */
+
+.wp-pagenavi {
+    margin:0 0 0 -.5em;
+    padding:0.5em 0;    
+}
+.wp-pagenavi a, .wp-pagenavi a:link, .wp-pagenavi span {
+    font-style:normal;
+    margin:0 .375em !important;
+    padding:0.5em 0.25em !important;
+}
+
+.wp-pagenavi a:hover {
+    border:1px solid #aaa !important;
+
+}
+.wp-pagenavi a:active {
+    border:1px solid #ccc !important;
+	font-weight: bold;
+}
+.wp-pagenavi span.pages {
+    border:none !important;
+    color:#666 !important;
+    margin:0 !important;
+    padding:0 !important;
+}
+.wp-pagenavi span.current {
+    border:none !important;
+    color:#666 !important;
+    font-weight:normal !important;
+    margin:0 !important;
+    padding:0 !important;
+}
+.wp-pagenavi span.extend {
+    background-color:#FFFFFF;
+    border:1px solid #000000;
+    color:#000000;
+    margin:2px;
+    padding:2px 4px;
+}
